@@ -1,1 +1,22 @@
-name: f77-multibody-humanoid\non:\n  workflow_dispatch:\n  push:\n    paths:\n      - 'simulation/f77_multibody_humanoid.py'\n      - '.github/workflows/f77-multibody-humanoid-canary.yml'\npermissions:\n  contents: read\njobs:\n  simulate:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - name: Run second-generation simulation\n        run: python simulation/f77_multibody_humanoid.py\n      - uses: actions/upload-artifact@v4\n        if: always()\n        with:\n          name: f77-multibody-humanoid\n          path: out/*.json\n          retention-days: 14\n
+name: F77 multibody humanoid V2
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'simulation/f77_multibody_humanoid.py'
+      - '.github/workflows/f77-multibody-humanoid-canary.yml'
+permissions:
+  contents: read
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run second-generation simulation
+        run: python simulation/f77_multibody_humanoid.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: f77-multibody-humanoid
+          path: out/*.json
+          retention-days: 14
