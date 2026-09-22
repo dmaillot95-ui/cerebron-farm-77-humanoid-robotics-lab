@@ -1,0 +1,22 @@
+name: F77 Real Numerical Humanoid Balance Simulation
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'simulation/f77_humanoid_balance.py'
+      - '.github/workflows/f77-real-numerical-simulation.yml'
+permissions:
+  contents: read
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute numerical physics simulation
+        run: python simulation/f77_humanoid_balance.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: f77-real-numerical-simulation
+          path: out/*.json
+          retention-days: 14
