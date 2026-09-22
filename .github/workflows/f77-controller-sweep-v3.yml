@@ -1,0 +1,22 @@
+name: F77 Controller Recovery Sweep V3
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'simulation/f77_controller_sweep_v3.py'
+      - '.github/workflows/f77-controller-sweep-v3.yml'
+permissions:
+  contents: read
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Search controller without weakening pass criterion
+        run: python simulation/f77_controller_sweep_v3.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: f77-controller-sweep-v3
+          path: out/*.json
+          retention-days: 14
