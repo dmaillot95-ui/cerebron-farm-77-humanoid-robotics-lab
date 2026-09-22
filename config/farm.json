@@ -1,0 +1,25 @@
+{
+  "schema": "cerebron-farm-77-v1",
+  "farm_id": 77,
+  "name": "HUMANOID ROBOTICS LAB",
+  "status": "BOOTSTRAP_REAL_REPOSITORY",
+  "mission": "humanoid robotics digital twin, locomotion, manipulation, simulation, reinforcement learning and Sim2Real",
+  "integration": {
+    "orchestrator": "F76 CEREBRON CORE",
+    "reality_gate": "F72",
+    "final_fusion": "AFAH"
+  },
+  "evidence_rules": [
+    "REALITY > COHERENCE",
+    "EVIDENCE > CONFIDENCE",
+    "CLAIM <= EVIDENCE",
+    "SIMULATION != TEST",
+    "VERIFY BEFORE COMMIT"
+  ],
+  "capability_status": {
+    "repository": "VERIFIED",
+    "simulation_runtime": "NOT_YET_VERIFIED",
+    "physical_robot": "NOT_CONNECTED",
+    "neural_training": "NOT_DEMONSTRATED"
+  }
+}
